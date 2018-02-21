@@ -70,47 +70,29 @@
 \begin_body
 
 \begin_layout Title
-RGBD-Sphere SLAM
+A MATLAB/ROS System for SLAM Algorithm Education
 \end_layout
 
 \begin_layout Author
-John Papadakis, Andrew Willis
+Andrew Willis, David Grobowski, Nelyadi Shetty, James Conrad
 \end_layout
 
 \begin_layout Abstract
-This article proposes a new SLAM algorithm referred to as RGBD-Sphere SLAM.
- The key innovation of this work is the prototypical system that transforms
- formal models of geometric shape and appearance into recognition rules.
- Models are specified as shape programs in PSML a custom-built procedural
- language for 3D object modeling.
- A recognition-compiler transforms shape programs into recognition rules
- that return the object likelihood given a collection of shape primitives
- and their associated appearance parameters.
- The proposed RGBD-Sphere SLAM algorithm demonstrates a prototypical example
- of the system.
- Here, the PSML program specifies spherical 3D objects having diffuse surface
- albedos and distinct color appearances.
- The recognition-compiler creates a geometry and appearance detector to
- detect and recognize the objects within streaming RGBD sensor data.
- The detected model parameters are then integrated into an RGBD SLAM algorithm;
- hence the name RGBD-Sphere SLAM.
- This article describes the PSML programs, the spherical detection and recogniti
-on algorithms used and describes the impact this approach has for improving
- the performance of standard RGBD SLAM by incorporating spherical 3D landmarks.
- This is the first example of a prototypical system that externalizes the
- geometric and appearance modeling to a programming language from which
- a recognizer is created and marks an important step towards enabling users
- to 
-\begin_inset Quotes eld
-\end_inset
-
-program
-\begin_inset Quotes erd
-\end_inset
-
- their problem space and allow computers to transform the formal model of
- the problem as expressed in PSML into recognition rules appropriate for
- distinct datatypes, e.g., color imagery and depth imagery.
+This article describes a complete platform the leverages the Robot Operating
+ System and MATLAB software to provide a novel environment for SLAM algorithm
+ development, simulation, prototyping and education.
+ The system enables users to validate and evaluate SLAM algorithms written
+ in MATLAB using conventional numerical simulation, hardware-in-the-loop
+ (HIL) simulation or on real robotic platforms, e.g., the Turlebot Kobuki
+ from iCreate, with little to no modification to the MATLAB SLAM code.
+ As such, the system represents an important tool for the purpose of prototyping
+ and benchmarking SLAM algorithms and also serves as an ideal platform for
+ educating students on the theory and practical implementation of SLAM algorithm
+s.
+ This article describes the structure of the system and describes how the
+ system provides heretofore inaccessible levels of educational benefits
+ for SLAM algorithm education.
+ S
 \end_layout
 
 \begin_layout Section
@@ -118,37 +100,11 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-RGBD sensors
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Holz11real-timeplane"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-RGBD sensor shortcomings
-\end_layout
-
-\begin_layout Standard
-RGBD SLAM
-\end_layout
-
-\begin_layout Standard
-RGBD SLAM shortcomings
-\end_layout
-
-\begin_layout Standard
-Contribution of this article
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Fitzgibbon:1999:DLS:302943.302950"
-
-\end_inset
-
-
+Simultaneous Localization and Mapping (SLAM) is a classical topic in the
+ robotic, navigation, guidance and computer vision community.
+ Solutions to this problem seek to exploit geometric sensor measurements
+ to simultaneously create a map of the environment around the robot and
+ estimate the position the robot within this map.
 \end_layout
 
 \begin_layout Section
@@ -156,48 +112,55 @@ Related Work
 \end_layout
 
 \begin_layout Standard
-Overview of the SLAM problem discuss SLAM as a combination of odometry (localiza
-tion) and mapping.
- Mention different approaches to SLAM, how RGBD SLAM differs from other
- forms of SLAM in terms of sensed data.
-\end_layout
-
-\begin_layout Subsection
-Odometry
+Find methods to teach SLAM
 \end_layout
 
 \begin_layout Standard
-Explain the odometry problem.
- How it's solved (in typical RGBD applications) and how the parameters of
- the solution are fed to the SLAM algorithm.
- Compare existing RGBD odometry examples shortcomings of each example.
-\end_layout
-
-\begin_layout Subsection
-Mapping
+OpenSLAM --- C++
 \end_layout
 
 \begin_layout Standard
-Explain the mapping problem.
- How it's solved (in typical RGBD applications) and how the parameters of
- the solution are fed to the SLAM algorithm.
- Compare existing RGBD mapping examples shortcomings of each example.
-\end_layout
-
-\begin_layout Subsection
-Graph SLAM
+ROS and SLAM --- C++ some python
 \end_layout
 
 \begin_layout Standard
-Explain how odometry and mapping are integrated via the SLAM algorithm.
- Discuss approaches to SLAM and graph SLAM.
- Discuss shortcomings.
- 
+Discuss difficulties in teaching these topics in a semester-long robotics
+ or (optimal) control course.
 \end_layout
 
 \begin_layout Standard
-Address shortcomings in odometry, mapping, or SLAM that may be addressed
- via the novelty of this work.
+Discuss the unique contributions that the MATLAB/ROS provides.
+\end_layout
+
+\begin_layout Standard
+MATLAB 
+\end_layout
+
+\begin_layout Itemize
+high level language, can program entire algorithm in less lines of code
+\end_layout
+
+\begin_layout Itemize
+students can see a direct relationship between the written code and the
+ theoretical equaitons derived/discussed in lecture
+\end_layout
+
+\begin_layout Itemize
+MATLAB's implementation of the ROS publisher/subscriber interface abstracts
+ the producer of sensor readings from the computational model that processes
+ the sensed values
+\end_layout
+
+\begin_layout Itemize
+ROS publisher/subscriber interface requires only a network communication
+ link between the sensor data generator and the MATLAB host node
+\end_layout
+
+\begin_layout Itemize
+Data generator can be from Gazebo on the local host (conventional simulation),
+ from a remote host publishing sensor data via HIL simulation (HIL simulation),
+ or from be data sensed from a real-life sensor on an actual robot, e.g.,
+ the iCreate Kobuki.
 \end_layout
 
 \begin_layout Section
@@ -205,35 +168,49 @@ Methodology
 \end_layout
 
 \begin_layout Standard
-Discuss the specific techniques applied in this work.
- What novel thing(s) are being accomplished.
- How are they being accomplished? 
+Create a collection of MATLAB classes that subscribe to ROS sensor topics
+ to which the data generator(s) publish their measurements.
+ Block diagram of the overall system.
 \end_layout
 
 \begin_layout Subsection
-Appearance-Based Landmark Detection
+The Map
 \end_layout
 
 \begin_layout Standard
-Describe technique to detect data originating from shape landmarks
-\end_layout
-
-\begin_layout Subsection
-Geometric Sphere Fitting
-\end_layout
-
-\begin_layout Standard
-Describe technique to fit spheres
-\end_layout
-
-\begin_layout Subsection
-Graph SLAM with Shape Constraints
-\end_layout
-
-\begin_layout Standard
-Describe how shape constraints are integrated to the SLAM graph.
- How is optimization effected? How is the information/covariance computed?
+In simulation, MATLAB is used to construct a map whose geometry is known
+ in both MATLAB and in the simulator, e.g., Gazebo.
+ Gazebo is a slave to MATLAB for the purpose of creating the map.
+ Here a MATLAB class is responsible for constructing the world by instantiating
+ objects (in the form of 3D models) into the Gazebo world.
+ These objects are also placed in a 3D world tracked by MATLAB.
  
+\end_layout
+
+\begin_layout Subsection
+Data Flow
+\end_layout
+
+\begin_layout Standard
+Give examples of how image data and scan data flow from the data generator
+ to MATLAB.
+ MATLAB takes in the data and generates observation measurements for the
+ SLAM algorithm.
+ The algorithm then takes these measurements in and updates/corrects the
+ state which includes the robot's localized position and the MAP.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+2D Line Scanner example (EKF-SLAM)
+\end_layout
+
+\begin_layout Subsubsection
+2D Image Sensor example (EKF-SLAM)
+\end_layout
+
+\begin_layout Subsubsection
+RSSI Sensor exampleRange Only (EKF-RO-SLAM)
 \end_layout
 
 \begin_layout Section
@@ -241,31 +218,13 @@ Results
 \end_layout
 
 \begin_layout Standard
-Data set A: RGBD depth stream
-\begin_inset CommandInset citation
-LatexCommand cite
-key "4059046"
-
-\end_inset
-
-
+Datasets...
+ perform simulation, run on real robot document # lines of code, document
+ accuracy
 \end_layout
 
 \begin_layout Standard
-RGBD-SLAM Algorithm performance using shape landmarks A
-\end_layout
-
-\begin_layout Standard
-RGBD-SLAM Algorithm performance using shape landmarks B
-\end_layout
-
-\begin_layout Standard
-What effect does the new shape constraints have on the map/trajectory accuracy?
-\end_layout
-
-\begin_layout Standard
-How do different approximations for information impact the map/trajectory
- accuracy?
+document latency
 \end_layout
 
 \begin_layout Section
