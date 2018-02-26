@@ -121,12 +121,12 @@ In academia the usefulness of a robust simulation tool cannot be understated.
  Test validation is of course extremely important, but the development of
  a system for such validation is often not the goal of said research.
  In addition, the code used for simulation is often not efficiently saleable
- or capable of being modified in such a way that it can be rapidly re-purposed
+ or capable of being modified in such a way that it can rapidly re-purposed
  for real world experimentation.
  A popular option for mitigating the time requried for simulation is to
  use pre made data sets.
- Data sets consist of data, such a range measurments or image frames, that
- can be processed without the need for a simulation 
+ Data sets consist of data, such a range measurments or image frame, that
+ can be processed without the need for robust simulation software 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mueggler2017"
@@ -134,9 +134,6 @@ key "Mueggler2017"
 \end_inset
 
 .
- However, these data-sets are constrained by the by the very fact that they
- are a finate set of data and thus the risk of creating an algorithm that
- is 'fine tunned' for the data set becomes plausable.
  The largest constraint in classroom education is time.
  The typical length of a semester for college on most academic calendars
  in the United States is fifteen weeks long.
@@ -148,12 +145,12 @@ ing of the methods being used and validating them with said simulation.
  SLAM is an broad field covering a variety of topics in robotics such as
  navigation, guidance and computer vision.
  Any course planning to cover SLAM will already be hard pressed to thoroughly
- explain the formulation behind the methods used in solution, such as kalman
- filtering, data ascoication, image processing etc.
- However, only explaining the formulation behind methods is unsatisfactory.
+ explain the formulation behind the methods used in solution, such as SLAMMED,
+ RO-EKF-SLAM, etc.
+ However, only explainign the formulation behind methods is unsatisfactory.
  Students should be tested on thier ability to understand these methods
  through implementation, simluation, and experimentation.
- The problem is, there is simply not enough time to fully develope the software
+ However, there is simply not enough time to fully develope the software
  needed to do such simluation in the given the time frame.
  Depending on the enviorment used to create said simluation, such as C,
  the time required could increase by a large factor.
@@ -183,12 +180,12 @@ key "Fangohr2004"
 
 \end_inset
 
- (EXAMPLES, CITATIONS, EXPLAIN).
+ (EXAMPLES, CITATIONS).
  One of the largest benifits of MATLAB is the ease of understanding and
  modification it provides.
  In addtiion the layout of the MATLAB code allows students to easily see
- the relationship between the thoery/formulation discussed in class and
- the algorithms being implemented in code.
+ the relationship between the thoery and formulation discussed in class
+ and the algorithms being implemented in code.
  Through the Robot Operating System (ROS) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -206,10 +203,6 @@ ation to be switched between extremly efficently as the algorithms used
  can remaing largley untouched while only the target of the communication
  must change.
  
-\end_layout
-
-\begin_layout Standard
-——–
 \end_layout
 
 \begin_layout Standard
@@ -248,30 +241,22 @@ The duration of development and testing affects the time as it might be
  We could, of course, put breakpoints or a pause-on-command feature in our
  simulation but that's rather intrusive.
  In addition , labs in giving access to actual experimentation are ultimately
- more effective for the goals of a more hands-on education and research.The
+ more effective for thegoals of a more hands-on education and research.The
  development of actual robots to implement these algorithms might have have
  practical industry applications but the time and effort put into developing
  low level code and the physical hardware might be unnecessary when used
  in a educational setting.
  In addition to this different algorithms might require different hardware
  such as sensors to implement the application.
- For example visual base SLAM might require a depth based camera while other
+ For example visual base SLAM might require a dept based camera while other
  versions of the algoihm might require just a laser scaaner.
  However, due to the employment of actual robots and equipment, labs in
- this category ,whether on site or remote, are expensive to set-up, maintain
+ this category -whether on-site or remote - are expensive to set-up, maintain
  and provide with long hours of daily staffing.
  Safety and longevity issues of these costly instruments arise as other
  important points of consideration, particularly when open access is allowed
  to users of a multitude of education, back groundand experience levels.
  
-\end_layout
-
-\begin_layout Standard
-—–
-\end_layout
-
-\begin_layout Standard
-TODO: more info about SLAM, ROS, and GAZEBO
 \end_layout
 
 \begin_layout Section
@@ -444,7 +429,7 @@ key "Trevor2012"
 \begin_layout Standard
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Davison2007,Lee2013"
+key "Davison2007"
 
 \end_inset
 
