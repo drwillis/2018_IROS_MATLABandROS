@@ -338,6 +338,55 @@ Data generator can be from Gazebo on the local host (conventional simulation),
 \end_layout
 
 \begin_layout Standard
+In the context of education, implementing a SLAM algorithm can be broken
+ into two broad problems.
+ The first is understanding the algorithm and how it is a solution to the
+ SLAM problem.
+ The second is implementing that algorithm with code.
+ The puspose of most classes is to focus on the first of these problems
+ which is understanding how an algorithm solves the SLAM problem.
+ The implementation of said algorithms mainly focuses around translating
+ the solution equation into an coded algorithm and then being able to observe,
+ via simulation or experimnetation, the validity of these solutions.
+ Therefore, a coding language must be chosen that allows for easy translation
+ between equation and algorithm.
+ One of the most popular language options is C, or C++.
+ C is a low level programing language that is known for its ability to provide
+ execution speed and efficency, espcially for embedded systems where avaiable
+ resources are a large constraint.
+ However, the cost of this is the knowledge and complexity which is required
+ to encode algorithms.
+ MATLAB is a high level programming lanugage, sometimes called a 4th generation
+ language.
+ One of the main differences between MATLAB and C is the fact that MATLAB
+ reads the source code line by line and interperts it into machine instructions
+ on the fly, meaning no compilation is required.
+ This results in decreased execution speed but has the major benifit of
+ freeing the programmer from needing to worry about memory alocation and
+ allows dynamic typing 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fangohr2004"
+
+\end_inset
+
+.
+ In short, MATLAB allows for algorithms to be encoded much quicker and with
+ less lines of code then in C at the cost of execution speed 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Prechelt2000"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+INSERT EXAMPLE OF ALGORITHM IN C CODE VS ALGORITHM IN MATLAB CODE
+\end_layout
+
+\begin_layout Standard
 Whenever robotics is used to solve a given problem in the context of education
  ,the importance of finding the algorithmic solution outweighs the importance
  implementing it in a lower level programming language.
@@ -414,6 +463,13 @@ Give examples of how image data and scan data flow from the data generator
  SLAM algorithm.
  The algorithm then takes these measurements in and updates/corrects the
  state which includes the robot's localized position and the MAP.
+ 
+\end_layout
+
+\begin_layout Standard
+A key aspect of any simulator or experimention software is data flow.
+ In fact data flow is a critical issue for the SLAM simulator as it provides
+ the link between any type of sensor measurment and controls.
  
 \end_layout
 
