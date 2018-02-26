@@ -1,7 +1,9 @@
 #LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass IEEEtran
 \use_default_options true
 \maintain_unincluded_children false
@@ -9,16 +11,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -118,12 +120,12 @@ In academia the usefulness of a robust simulation tool cannot be understated.
  other than test validation.
  Test validation is of course extremely important, but the development of
  a system for such validation is often not the goal of said research.
- In addition, the code used for simulation is often not efficiently saleable
+ In addition, the code used for simulation is often not efficiently scale-able
  or capable of being modified in such a way that it can be rapidly re-purposed
  for real world experimentation.
- A popular option for mitigating the time requried for simulation is to
+ A popular option for mitigating the time required for simulation is to
  use pre made data sets.
- Data sets consist of data, such a range measurments or image frames, that
+ Data sets consist of data, such a range measurements or image frames, that
  can be processed without the need for a simulation 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -133,8 +135,8 @@ key "Mueggler2017"
 
 .
  However, these data-sets are constrained by the by the very fact that they
- are a finate set of data and thus the risk of creating an algorithm that
- is 'fine tunned' for the data set becomes plausable.
+ are a finite set of data and thus the risk of creating an algorithm that
+ is 'fine tunned' for the data set becomes plausible.
  The largest constraint in classroom education is time.
  The typical length of a semester for college on most academic calendars
  in the United States is fifteen weeks long.
@@ -146,22 +148,22 @@ ing of the methods being used and validating them with said simulation.
  SLAM is an broad field covering a variety of topics in robotics such as
  navigation, guidance and computer vision.
  Any course planning to cover SLAM will already be hard pressed to thoroughly
- explain the formulation behind the methods used in solution, such as kalman
- filtering, data ascoication, image processing etc.
+ explain the formulation behind the methods used in solution, such as Kalman
+ filtering, data mastication, image processing etc.
  However, only explaining the formulation behind methods is unsatisfactory.
- Students should be tested on thier ability to understand these methods
- through implementation, simluation, and experimentation.
- The problem is, there is simply not enough time to fully develope the software
- needed to do such simluation in the given the time frame.
- Depending on the enviorment used to create said simluation, such as C,
+ Students should be tested on their ability to understand these methods
+ through implementation, simulation, and experimentation.
+ The problem is, there is simply not enough time to fully develop the software
+ needed to do such simulation in the given the time frame.
+ Depending on the environment used to create said simulation, such as C,
  the time required could increase by a large factor.
  
 \end_layout
 
 \begin_layout Standard
-Thus, the usefullness for a platform that allows for SLAM algorithm development,
- simluation, prototyping, and education can be seen.
- MATLAB offers a prime envoirment for the devleopment of such a platform
+Thus, the usefulness for a platform that allows for SLAM algorithm development,
+ simulation, prototyping, and education can be seen.
+ MATLAB offers a prime environment for the development of such a platform
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -170,7 +172,7 @@ key "Rossiter2010"
 \end_inset
 
 .
- MATLAB is a high level lagnauge that can be rapidly understood by anyone
+ MATLAB is a high level language that can be rapidly understood by anyone
  with a small coding background.
  MATLAB allows for the creation of algorithms in less lines of codes as
  it capable of abstracting many of the otherwise complex function that one
@@ -182,10 +184,10 @@ key "Fangohr2004"
 \end_inset
 
  (EXAMPLES, CITATIONS, EXPLAIN).
- One of the largest benifits of MATLAB is the ease of understanding and
+ One of the largest benefits of MATLAB is the ease of understanding and
  modification it provides.
- In addtiion the layout of the MATLAB code allows students to easily see
- the relationship between the thoery/formulation discussed in class and
+ In addition the layout of the MATLAB code allows students to easily see
+ the relationship between the theory/formulation discussed in class and
  the algorithms being implemented in code.
  Through the Robot Operating System (ROS) 
 \begin_inset CommandInset citation
@@ -194,14 +196,14 @@ key "Bouchier2013"
 
 \end_inset
 
-publisher/subscriber interface MATLAB is able to receive sensor measurments
+publisher/subscriber interface MATLAB is able to receive sensor measurements
  and send control commands.
  The ROS publisher/subscriber interface works in such a manner that only
- a netowrk communciation link between the sensor/robot and MATLAB host is
+ a network communication link between the sensor/robot and MATLAB host is
  required.
  This is extremely important as it allows for simulation and physical experiment
-ation to be switched between extremly efficently as the algorithms used
- can remain largley untouched while only the target of the communication
+ation to be switched between extremely efficiently as the algorithms used
+ can remain largely untouched while only the target of the communication
  must change.
  
 \end_layout
@@ -219,11 +221,11 @@ s is to integrate the robot into the real process of application.
  the behavior of the developed robot the context of the entire application.
  Due to the value it offers both in manufacturing and education, HIL systems
  have found a wide range of applications in aircraft and missile industries[12,
- 13], automotive industry [14, 15], motion control, mechatronics [16±20]
- and finally in the field of robotics; Reported applications of the HIL
- concept in robotics is given in [21, 22], in which the HIL approach is
- used with the incorporation of the actual motion controller into the simulation
- process of a robot arm.
+ 13], automotive industry [14, 15], motion control, mechanics [16±20] and
+ finally in the field of robotics; Reported applications of the HIL concept
+ in robotics is given in [21, 22], in which the HIL approach is used with
+ the incorporation of the actual motion controller into the simulation process
+ of a robot arm.
  However, the contribution has been limited to the use of one piece of actual
  hardware, which is the DSP-based controller used in the generation of the
  computer simulation software 
@@ -234,12 +236,12 @@ key "Temeltas2006,Lal2009"
 \end_inset
 
 .
- (NEED TO RESTRUCTURE, CITATIONS FROM CITED PAPER: only for refernce)
+ (NEED TO RESTRUCTURE, CITATIONS FROM CITED PAPER: only for reference)
 \end_layout
 
 \begin_layout Standard
 The duration of development and testing affects the time as it might be
- revelant in a educational setting for higher level algorithms.
+ relevant in a educational setting for higher level algorithms.
  HIL cannot easily stop-if you pause the hardware-in-the-loop simulator,
  all the components that it's attached to, including the algorithm in your
  system-under-test, keep running.
@@ -254,13 +256,13 @@ The duration of development and testing affects the time as it might be
  In addition to this different algorithms might require different hardware
  such as sensors to implement the application.
  For example visual base SLAM might require a depth based camera while other
- versions of the algoihm might require just a laser scaaner.
+ versions of the algorithm might require just a laser scanner.
  However, due to the employment of actual robots and equipment, labs in
  this category ,whether on site or remote, are expensive to set-up, maintain
  and provide with long hours of daily staffing.
  Safety and longevity issues of these costly instruments arise as other
  important points of consideration, particularly when open access is allowed
- to users of a multitude of education, back groundand experience levels.
+ to users of a multitude of education, back ground and experience levels.
  
 \end_layout
 
@@ -343,26 +345,26 @@ In the context of education, implementing a SLAM algorithm can be broken
  The first is understanding the algorithm and how it is a solution to the
  SLAM problem.
  The second is implementing that algorithm with code.
- The puspose of most classes is to focus on the first of these problems
+ The suppose of most classes is to focus on the first of these problems
  which is understanding how an algorithm solves the SLAM problem.
  The implementation of said algorithms mainly focuses around translating
  the solution equation into an coded algorithm and then being able to observe,
- via simulation or experimnetation, the validity of these solutions.
+ via simulation or experimentation, the validity of these solutions.
  Therefore, a coding language must be chosen that allows for easy translation
  between equation and algorithm.
  One of the most popular language options is C, or C++.
- C is a low level programing language that is known for its ability to provide
- execution speed and efficency, espcially for embedded systems where avaiable
- resources are a large constraint.
+ C is a low level programming language that is known for its ability to
+ provide execution speed and efficiency, especially for embedded systems
+ where available resources are a large constraint.
  However, the cost of this is the knowledge and complexity which is required
  to encode algorithms.
- MATLAB is a high level programming lanugage, sometimes called a 4th generation
+ MATLAB is a high level programming language, sometimes called a 4th generation
  language.
  One of the main differences between MATLAB and C is the fact that MATLAB
- reads the source code line by line and interperts it into machine instructions
+ reads the source code line by line and interprets it into machine instructions
  on the fly, meaning no compilation is required.
- This results in decreased execution speed but has the major benifit of
- freeing the programmer from needing to worry about memory alocation and
+ This results in decreased execution speed but has the major benefit of
+ freeing the programmer from needing to worry about memory location and
  allows for dynamic typing 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -395,24 +397,24 @@ key "Rossiter2010"
 \end_inset
 
  proposes how MATLAB can be used as a simulation tool for classical control
- anyalsis/design and model predictive control.
+ analysis/design and model predictive control.
  The paper discusses how when teaching controls the set of paper and pencil
  examples is quite limited as any non-trival system design and anaylsis
  will require fairly complex Bode and Nyquist plots, among other things,
- which can not be well represented by hand drawn sketeches.
+ which can not be well represented by hand drawn sketches.
  MATLAB allows for the systems to be quickly coded and experimented with.
  Any experimentation done via paper and pencil could take minutes to fully
  compute, MATLAB instead takes seconds.
  In addition, it allows for concepts such as root-loci to be first attempted
- by hand then incrementaly validated via MATLAB.
+ by hand then incrementally validated via MATLAB.
  This provides a level of interaction that is impossible in traditional
- settings as the student is able to activley reforce thier learning through
+ settings as the student is able to actively reinforce their learning through
  simulation.
  Also, the time and coding knowledge required to code the solutions for
  the controls problems presented in the paper is minimum.
  The figure below shows how a system G(s) and controller K(s) can be quickly
  coded and simulated to examine steady state values.
- The speed and ease with which this can be acomplished makes it an invauable
+ The speed and ease with which this can be accomplished makes it an invaluable
  tool to aid students in learning the finer points of concepts presented
  throughout the class.
  
@@ -443,19 +445,20 @@ key "Qian2014"
 
 \end_inset
 
- illistrautes the usefulness the robot operating system and the software
+ illustrates the usefulness the robot operating system and the software
  Gazebo.
  The paper discusses how through the use of Gazebo and ROS a model of a
- robot arm manpulator was created and used for simulator.
+ robot arm manipulator was created and used for simulator.
  The simulator allowed for rapid testing of arm controllers in parallel
  with the construction of a physical arm for experimentation.
  However, due to the nature of how the controller was implemented it would
  not make a practical tool for education purposes.
  For one, the students would require an in depth knowledge of how Gazebo
  and ROS operates in order to make changes to the controller.
- The simulator proposed by this paper seeks to abstract this such that the
- student will be able to effectivly modify and controller used with as minimum
- knowledge of outside simulation function as possible.
+ The simulator that is being proposed for this research paper will seek
+ to abstract this such that the student will be able to effectively modify
+ the controller used with as minimum knowledge of outside simulation function
+ as possible.
  
 \end_layout
 
@@ -466,13 +469,13 @@ Methodology
 \begin_layout Standard
 Create a collection of MATLAB classes that subscribe to ROS sensor topics
  to which the data generator(s) publish their measurements.
- Block diagram of the overall system.(GUDIE)
+ Block diagram of the overall system.(GUIDE)
 \end_layout
 
 \begin_layout Standard
 ROS has a distributed framework and is used widely in robotics.
  There are various advantages that are provided by ROS with the hardware
- abstraction that it offers and the code reusability as we move form simulation
+ abstraction that it offers and the code re-usability as we move form simulation
  environment to the actual implementation
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -484,7 +487,7 @@ key "Qian2014"
  In addition there several compatible software packages such as gazebo that
  can provide a realistic dynamic simulation environment that a robot might
  encounter.
- The main intent behind used Ros is to implement pieces of software that
+ The main intent behind used ROS is to implement pieces of software that
  can work in multiple robots by making little changes in the code 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -524,9 +527,9 @@ Give examples of how image data and scan data flow from the data generator
 \end_layout
 
 \begin_layout Standard
-A key aspect of any simulator or experimention software is data flow.
+A key aspect of any simulator or experimentation software is data flow.
  In fact data flow is a critical issue for the SLAM simulator as it provides
- the link between any type of sensor measurment and controls.
+ the link between any type of sensor measurement and controls.
  
 \end_layout
 
