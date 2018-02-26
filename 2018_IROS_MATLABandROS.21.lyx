@@ -201,7 +201,7 @@ publisher/subscriber interface MATLAB is able to receive sensor measurments
  required.
  This is extremely important as it allows for simulation and physical experiment
 ation to be switched between extremly efficently as the algorithms used
- can remaing largley untouched while only the target of the communication
+ can remain largley untouched while only the target of the communication
  must change.
  
 \end_layout
@@ -415,6 +415,14 @@ key "Rossiter2010"
  The speed and ease with which this can be acomplished makes it an invauable
  tool to aid students in learning the finer points of concepts presented
  throughout the class.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rossiter2010"
+
+\end_inset
+
+ (FIGURE LABEL/DESCRIPTION NEEDED)
 \end_layout
 
 \begin_layout Standard
@@ -429,7 +437,26 @@ key "Rossiter2010"
 \end_layout
 
 \begin_layout Standard
-Hello world
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Qian2014"
+
+\end_inset
+
+ illistrautes the usefulness the robot operating system and the software
+ Gazebo.
+ The paper discusses how through the use of Gazebo and ROS a model of a
+ robot arm manpulator was created and used for simulator.
+ The simulator allowed for rapid testing of arm controllers in parallel
+ with the construction of a physical arm for experimentation.
+ However, due to the nature of how the controller was implemented it would
+ not make a practical tool for education purposes.
+ For one, the students would require an in depth knowledge of how Gazebo
+ and ROS operates in order to make changes to the controller.
+ The simulator proposed by this paper seeks to abstract this such that the
+ student will be able to effectivly modify and controller used with as minimum
+ knowledge of outside simulation function as possible.
+ 
 \end_layout
 
 \begin_layout Section
