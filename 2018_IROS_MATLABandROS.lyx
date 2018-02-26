@@ -203,7 +203,7 @@ publisher/subscriber interface MATLAB is able to receive sensor measurments
  required.
  This is extremely important as it allows for simulation and physical experiment
 ation to be switched between extremly efficently as the algorithms used
- can remaing largley untouched while only the target of the communication
+ can remain largley untouched while only the target of the communication
  must change.
  
 \end_layout
@@ -417,6 +417,14 @@ key "Rossiter2010"
  The speed and ease with which this can be acomplished makes it an invauable
  tool to aid students in learning the finer points of concepts presented
  throughout the class.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rossiter2010"
+
+\end_inset
+
+ (FIGURE LABEL/DESCRIPTION NEEDED)
 \end_layout
 
 \begin_layout Standard
@@ -431,7 +439,19 @@ key "Rossiter2010"
 \end_layout
 
 \begin_layout Standard
-Hello world
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Qian2014"
+
+\end_inset
+
+ illistrautes the usefulness the robot operating system and the software
+ Gazebo.
+ The paper discusses how through the use of Gazebo and ROS a simulation
+ of a robot arm manpulator was created.
+ The simulator allowed for rapid testing of arm controllers in parallel
+ with the construction of a physical arm for experimentation.
+ 
 \end_layout
 
 \begin_layout Section
