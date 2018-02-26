@@ -277,27 +277,31 @@ Related Work
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
 Find methods to teach SLAM
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 OpenSLAM — C++
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 ROS and SLAM — C++ some python
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Discuss difficulties in teaching these topics in a semester-long robotics
  or (optimal) control course.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Discuss the unique contributions that the MATLAB/ROS provides.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 MATLAB 
 \end_layout
 
@@ -328,16 +332,7 @@ Data generator can be from Gazebo on the local host (conventional simulation),
  the iCreate Kobuki.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-%
-\end_layout
-
 \end_inset
-
 
 
 \end_layout
@@ -368,7 +363,7 @@ In the context of education, implementing a SLAM algorithm can be broken
  on the fly, meaning no compilation is required.
  This results in decreased execution speed but has the major benifit of
  freeing the programmer from needing to worry about memory alocation and
- allows dynamic typing 
+ allows for dynamic typing 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Fangohr2004"
@@ -385,6 +380,7 @@ key "Prechelt2000"
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -392,19 +388,48 @@ INSERT EXAMPLE OF ALGORITHM IN C CODE VS ALGORITHM IN MATLAB CODE
 \end_layout
 
 \begin_layout Standard
-Whenever robotics is used to solve a given problem in the context of education
- ,the importance of finding the algorithmic solution outweighs the importance
- implementing it in a lower level programming language.
- From our experental results matlab is much suited than c to acomplisht
- his task .
- 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Fangohr2004,Rossiter2010"
+key "Rossiter2010"
+
+\end_inset
+
+ proposes how MATLAB can be used as a simulation tool for classical control
+ anyalsis/design and model predictive control.
+ The paper discusses how when teaching controls the set of paper and pencil
+ examples is quite limited as any non-trival system design and anaylsis
+ will require fairly complex Bode and Nyquist plots, among other things,
+ which can not be well represented by hand drawn sketeches.
+ MATLAB allows for the systems to be quickly coded and experimented with.
+ Any experimentation done via paper and pencil could take minutes to fully
+ compute, MATLAB instead takes seconds.
+ In addition, it allows for concepts such as root-loci to be first attempted
+ by hand then incrementaly validated via MATLAB.
+ This provides a level of interaction that is impossible in traditional
+ settings as the student is able to activley reforce thier learning through
+ simulation.
+ Also, the time and coding knowledge required to code the solutions for
+ the controls problems presented in the paper is minimum.
+ The figure below shows how a system G(s) and controller K(s) can be quickly
+ coded and simulated to examine steady state values.
+ The speed and ease with which this can be acomplished makes it an invauable
+ tool to aid students in learning the finer points of concepts presented
+ throughout the class.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Figures/matlab_controls_eq_to_code.PNG
+	lyxscale 80
+	scale 70
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Hello world
 \end_layout
 
 \begin_layout Section
