@@ -107,7 +107,6 @@ Simultaneous Localization and Mapping (SLAM) is a classical topic in the
  Solutions to this problem seek to exploit geometric sensor measurements
  to simultaneously create a map of the environment around the robot and
  estimate the position the robot within this map.
- (GUIDE)
 \end_layout
 
 \begin_layout Standard
@@ -533,6 +532,17 @@ A key aspect of any simulator or experimentation software is data flow.
  
 \end_layout
 
+\begin_layout Standard
+\begin_inset Graphics
+	filename Figures/Data Flow.png
+	lyxscale 70
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 2D Line Scanner example (EKF-SLAM)
 \end_layout
@@ -579,7 +589,8 @@ Results
 We first built the matlab code to establish and test the basic functionality
  required to implement SLAM algorithms.
  We then implemented the basic localization algorithm as mentioned [probabilisti
-c robotics ] and counted the amount of lines of code required to implement
+c robotics ] (INSERT FIGURE COMPARING EQ.
+ TO MATLAB CODE) and counted the amount of lines of code required to implement
  just the basic localization when the landmarks are known and also the data
  required to implement them.
  We then proceeded to implement SLAM using RGB cameras and RO SLAM using
