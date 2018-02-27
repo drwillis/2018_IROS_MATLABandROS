@@ -94,7 +94,9 @@ s.
  This article describes the structure of the system and describes how the
  system provides heretofore inaccessible levels of educational benefits
  for SLAM algorithm education.
- S
+ 
+\backslash
+
 \end_layout
 
 \begin_layout Section
@@ -573,6 +575,149 @@ RSSI Sensor exampleRange Only (EKF-RO-SLAM)
 
 \begin_layout Section
 Results
+\end_layout
+
+\begin_layout Standard
+We first built the matlab code to establish and test the basic functionality
+ required to implement SLAM algorithms.
+ We then implemented the basic localization algorithm as mentioned [probabilisti
+c robotics ] and counted the amount of lines of code required to implement
+ just the basic localization when the landmarks are known and also the data
+ required to implement them.
+ We then proceeded to implement SLAM using RGB cameras and RO SLAM using
+ radio beacons.
+ This is representative of how most the SLAM algorithms share a similar
+ core base code.
+ In a educational setting these algorithms are to be taught with incremental
+ progress ,i.e first by establishing basic core functionality and then implementi
+ng an entire application.
+ 
+\end_layout
+
+\begin_layout Standard
+As shown in figure we can see we added a comparably smaller amount of lines
+ and did use a lot of the old code, pointing out the feature of re usability
+ that can be used as most the individual applications of SLAM only vary
+ in type of data and rate of data flow.
+ The base core infrastructure around these algorithms took about 1650 lines
+ of code to implement.
+ Table 1 indicates the additional number of lines required to implement
+ various algorithms.
+ As we can see we used majority of the same infrastructure in all the algorithms
+ with a small addition of code for each application.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Algorithm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Additional Lines Of code
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Basic collision avoidance using laser scanner
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+52
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Localization using RGB camera
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+528
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+EKF SLAM using RGB camera
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+650
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Range only SLAM using Radio Beacons
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+720
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
