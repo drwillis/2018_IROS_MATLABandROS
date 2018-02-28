@@ -143,12 +143,12 @@ key "Mueggler2017"
  software to validate methods especially when the focus of a class is not
  on the creation of simulation software but rather gaining a thorough understand
 ing of the methods being used and validating them with said simulation.
- This holds especially true with Systematic Localization and Mapping (SLAM).
+ This holds especially true with SLAM.
  SLAM is an broad field covering a variety of topics in robotics such as
  navigation, guidance and computer vision.
  Any course planning to cover SLAM will already be hard pressed to thoroughly
- explain the formulation behind the methods used in solution, such as Kalman
- filtering, data mastication, image processing etc.
+ explain the formulation behind the methods used in solution, such as the
+ wide variety of avaiable filtering mtehods.
  However, only explaining the formulation behind methods is unsatisfactory.
  Students should be tested on their ability to understand these methods
  through implementation, simulation, and experimentation.
@@ -182,7 +182,7 @@ key "Fangohr2004"
 
 \end_inset
 
- (EXAMPLES, CITATIONS, EXPLAIN).
+.
  One of the largest benefits of MATLAB is the ease of understanding and
  modification it provides.
  In addition the layout of the MATLAB code allows students to easily see
@@ -195,7 +195,7 @@ key "Bouchier2013"
 
 \end_inset
 
-publisher/subscriber interface MATLAB is able to receive sensor measurements
+ publisher/subscriber interface MATLAB is able to receive sensor measurements
  and send control commands.
  The ROS publisher/subscriber interface works in such a manner that only
  a network communication link between the sensor/robot and MATLAB host is
@@ -205,10 +205,6 @@ ation to be switched between extremely efficiently as the algorithms used
  can remain largely untouched while only the target of the communication
  must change.
  
-\end_layout
-
-\begin_layout Standard
-——–
 \end_layout
 
 \begin_layout Standard
@@ -235,7 +231,9 @@ key "Temeltas2006,Lal2009"
 \end_inset
 
 .
- (NEED TO RESTRUCTURE, CITATIONS FROM CITED PAPER: only for reference)
+ (SAMYAK, gotta restructure this paragraph, still has random references
+ and looks like its from the ref.
+ paper)
 \end_layout
 
 \begin_layout Standard
@@ -266,11 +264,21 @@ The duration of development and testing affects the time as it might be
 \end_layout
 
 \begin_layout Standard
-—–
-\end_layout
-
-\begin_layout Standard
-TODO: more info about SLAM, ROS, and GAZEBO
+This paper proposes a fully functional system for rapid protoypting and
+ testing of SLAM algorithms.
+ The simulation systesm allows for numeric simulation through MATLAB, Gazebo
+ simulation via ROS commnuciation, hardware in loop simulation, and physical
+ experimentaion with robots via ROS.
+ One of the major benifits of this proposed system is the ease by which
+ the code can switch from Gazebo simulation to physical experimentation.
+ In addition, the implemention of the code via MATLAB allows for the abstraction
+ of the majority of the actual simluation.
+ This frees researchers and students to focus on implemetning SLAM algorithms
+ rather than worrying about creating a simulation enviorment.
+ MALAB also makes it very easy to translate mathmatic formulation to code.
+ This is extremely vaulable to students as it ensures that time is not wasted
+ on leaning the nuiances of a new programming language.
+ 
 \end_layout
 
 \begin_layout Section
@@ -344,7 +352,7 @@ In the context of education, implementing a SLAM algorithm can be broken
  The first is understanding the algorithm and how it is a solution to the
  SLAM problem.
  The second is implementing that algorithm with code.
- The suppose of most classes is to focus on the first of these problems
+ The purpose of most classes is to focus on the first of these problems
  which is understanding how an algorithm solves the SLAM problem.
  The implementation of said algorithms mainly focuses around translating
  the solution equation into an coded algorithm and then being able to observe,
@@ -389,6 +397,9 @@ INSERT EXAMPLE OF ALGORITHM IN C CODE VS ALGORITHM IN MATLAB CODE
 \end_layout
 
 \begin_layout Standard
+Due to the time, visualizton, and performance benifits increasing academic
+ instructures are looking to high level software tools to aid in the instruction
+ of courses.
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Rossiter2010"
@@ -398,7 +409,7 @@ key "Rossiter2010"
  proposes how MATLAB can be used as a simulation tool for classical control
  analysis/design and model predictive control.
  The paper discusses how when teaching controls the set of paper and pencil
- examples is quite limited as any non-trival system design and anaylsis
+ examples is quite limited as any non-trival system design and analysis
  will require fairly complex Bode and Nyquist plots, among other things,
  which can not be well represented by hand drawn sketches.
  MATLAB allows for the systems to be quickly coded and experimented with.
@@ -458,6 +469,53 @@ key "Qian2014"
  to abstract this such that the student will be able to effectively modify
  the controller used with as minimum knowledge of outside simulation function
  as possible.
+ 
+\end_layout
+
+\begin_layout Standard
+There are also quite a few papers and books in existence 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thrun2002,Corke2007,Corke2011"
+
+\end_inset
+
+that heavily delve into solutions to the SLAM problem.
+ Many of these even productive in depth explanation into their algorithms
+ making it easy to convert to code.
+ However, there are very few that focus explicitly on creating a robust
+ fully function system for the express purpose of developing and testing
+ SLAM algorithms.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thrun2002"
+
+\end_inset
+
+ provides an extremely good introduction to SLAM and a variety of algorithms
+ used to solve the SLAM problem.
+ The author even translates the mathematical formulation into code friendly
+ algorithms.
+ However, there is still the problem of implementing and simulation/testing
+ these algorithms.
+ While the algorithms are simply enough to follow and code, a simulation
+ software still needs to exists if the results are to be observed in a meaningfu
+l way to those just learning the topic.
+ In a classroom setting creating such simulation software can easily become
+ an inexcusable waste of time as there is just too much material to cover.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Corke2007,Corke2011"
+
+\end_inset
+
+ contain extremely good educational materials relating to MATLAB and its
+ robotics capabilities, but again there remains the problem of beings able
+ to create a software to be able to simulate and experiment with these algorithm
+s in a timely and meaningful manner, beyond simply plotting results to a
+ figure.
  
 \end_layout
 
