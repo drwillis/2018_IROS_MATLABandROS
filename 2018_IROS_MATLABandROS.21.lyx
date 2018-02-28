@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
 \lyxformat 474
 \begin_document
 \begin_header
@@ -92,9 +92,6 @@ s.
  This article describes the structure of the system and describes how the
  system provides heretofore inaccessible levels of educational benefits
  for SLAM algorithm education.
- 
-\backslash
-
 \end_layout
 
 \begin_layout Section
@@ -110,21 +107,46 @@ Simultaneous Localization and Mapping (SLAM) is a classical topic in the
 \end_layout
 
 \begin_layout Standard
-In academia the usefulness of a robust simulation tool cannot be understated.
- The ability to rapidly prototype and evaluate the effectiveness of methods
- and algorithms is of paramount importance to both the classroom and research
- setting.
- With research, developing an efficient tool for simulation can be a time
- consuming and costly process that provides no contribution to the research
- other than test validation.
- Test validation is of course extremely important, but the development of
- a system for such validation is often not the goal of said research.
+Robust simulation of solutions to the SLAM problem are an important tool
+ for algorithm development and performance analysis.
+ Applications of these simulators are found in both classroom and research
+ settings.
+ Research SLAM solutions are often custom-built for specific hardware, sences
+ and robot solutions.
+ As such, leveraging community code for a specific instance of a SLAM problem
+ can be difficult and adapting existing solutions can be a time consuming
+ and costly process that often fails to generate new research contributions.
  In addition, the code used for simulation is often not efficiently scale-able
  or capable of being modified in such a way that it can be rapidly re-purposed
  for real world experimentation.
  A popular option for mitigating the time required for simulation is to
- use pre made data sets.
- Data sets consist of data, such a range measurements or image frames, that
+ use pre-made data sets.
+\end_layout
+
+\begin_layout Standard
+For reason similar to simulation, validation of SLAM algorithms can also
+ be a challenging task.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Data-SLAM Algorithm parameters - overfitting
+\end_layout
+
+\begin_layout Plain Layout
+Lack of exhaustive data sets can unduly influence SLAM algorithm parameters,
+ e.g., noise models, and bias the parameter values to those that perform well
+ for the small set of available data.
+ precipitates incomplete analysis of SLAM algorithms
+\end_layout
+
+\end_inset
+
+Data sets consist of data, such a range measurements or image frames, that
  can be processed without the need for a simulation 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -135,21 +157,83 @@ key "Mueggler2017"
 .
  However, these data-sets are constrained by the by the very fact that they
  are a finite set of data and thus the risk of creating an algorithm that
- is 'fine tunned' for the data set becomes plausible.
- The largest constraint in classroom education is time.
- The typical length of a semester for college on most academic calendars
- in the United States is fifteen weeks long.
- Fifteen weeks is an extremely short amount of time to create a simulation
- software to validate methods especially when the focus of a class is not
- on the creation of simulation software but rather gaining a thorough understand
-ing of the methods being used and validating them with said simulation.
- This holds especially true with SLAM.
- SLAM is an broad field covering a variety of topics in robotics such as
- navigation, guidance and computer vision.
- Any course planning to cover SLAM will already be hard pressed to thoroughly
- explain the formulation behind the methods used in solution, such as the
- wide variety of avaiable filtering mtehods.
- However, only explaining the formulation behind methods is unsatisfactory.
+ is 
+\begin_inset Quotes eld
+\end_inset
+
+fine-tuned
+\begin_inset Quotes erd
+\end_inset
+
+ for the data set becomes plausible.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Classrooom delivery of SLAM topics - challenges and benefits of this paper.
+ Delivery of the concepts and opportunity to implement the concepts and
+ visually observe their impact
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solutions to robotics problem including the SLAM problem leverages theories
+ and algorithms from a variety of disciplines such as guidance, navigation,
+ control and computer vision.
+ Any course planning to cover SLAM will already be challenged to thoroughly
+ cover both theoretical and practical implementation details of each SLAM
+ solution, e.g., the varieties of SLAM algorithms as discussed in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+S
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:SLAM-Algorithms"
+
+\end_inset
+
+ (forward references are bad).
+ The largest constraint in classroom education is time.This holds especially
+ true with SLAM.
+ Given that the length of a college semester is fifteen weeks long students
+ require a 
+\begin_inset Quotes eld
+\end_inset
+
+sandbox
+\begin_inset Quotes erd
+\end_inset
+
+ environment within which to experiment both theoretically and practically
+ (visual reinforcement/validation of discussed theoretical concepts).
+ Current solutions are .....
+ 
+\end_layout
+
+\begin_layout Standard
+However, only explaining the formulation behind methods is unsatisfactory.
  Students should be tested on their ability to understand these methods
  through implementation, simulation, and experimentation.
  The problem is, there is simply not enough time to fully develop the software
@@ -157,6 +241,17 @@ ing of the methods being used and validating them with said simulation.
  Depending on the environment used to create said simulation, such as C,
  the time required could increase by a large factor.
  
+\end_layout
+
+\begin_layout Standard
+Yet, these sandbox environments lack (bulleted list)
+\end_layout
+
+\begin_layout Standard
+do not exist which is an extremely short amount of time to create a simulation
+ software to validate methods especially when the focus of a class is not
+ on the creation of simulation software but rather gaining a thorough understand
+ing of the methods being used and validating them with said simulation.
 \end_layout
 
 \begin_layout Standard
@@ -434,14 +529,102 @@ key "Rossiter2010"
 
 \end_inset
 
- (FIGURE LABEL/DESCRIPTION NEEDED)
+ As shown in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Math-to-Syntax"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:SLAM-Algorithms"
+
+\end_inset
+
+SLAM Algorithms
 \end_layout
 
 \begin_layout Standard
+EKF-SLAM
+\end_layout
+
+\begin_layout Standard
+Particle Filter-SLAM
+\end_layout
+
+\begin_layout Standard
+UKF-SLAM (Unscented Kalman Filter)
+\end_layout
+
+\begin_layout Standard
+EIF-SLAM
+\end_layout
+
+\begin_layout Standard
+SEIF-SLAM
+\end_layout
+
+\begin_layout Standard
+Graph-SLAM
+\end_layout
+
+\begin_layout Standard
+Grid-SLAM
+\end_layout
+
+\begin_layout Standard
+Fast-SLAM
+\end_layout
+
+\begin_layout Standard
+So many SLAM algorithms! How to teach them in a unified framework? How to
+ evaluate them in a consistent way? (Each one has it's own software implementati
+ons with unique library and code execution models compatibility with specific
+ sensor suites)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Graphics
 	filename Figures/matlab_controls_eq_to_code.PNG
 	lyxscale 80
 	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Math-to-Syntax"
+
+\end_inset
+
+How mathematics is re-expressed as program syntax.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -584,6 +767,18 @@ Give examples of how image data and scan data flow from the data generator
 \end_layout
 
 \begin_layout Standard
+As shown in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Data-generation-and"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 A key aspect of any simulator or experimentation software is data flow.
  In fact data flow is a critical issue for the SLAM simulator as it provides
  the link between any type of sensor measurement and controls.
@@ -591,10 +786,42 @@ A key aspect of any simulator or experimentation software is data flow.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Graphics
 	filename Figures/Data Flow.png
-	lyxscale 70
-	scale 30
+	lyxscale 50
+	width 85page%
+	height 2in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Data-generation-and"
+
+\end_inset
+
+Data generation and analysis flowchart.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -672,12 +899,17 @@ As shown in figure we can see we added a comparably smaller amount of lines
  various algorithms.
  As we can see we used majority of the same infrastructure in all the algorithms
  with a small addition of code for each application.
-\end_layout
+\begin_inset Float table
+wide false
+sideways false
+status open
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\noindent
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features tabularvalignment="middle">
+<features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
@@ -761,6 +993,30 @@ Collision Avoidance
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Incremental-code-comparison"
+
+\end_inset
+
+Incremental code development comparison for increasingly sophisticated algorithm
+s for robot location, SLAM and robot guidance, navigation and controls problems.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
