@@ -1,4 +1,4 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
 \lyxformat 474
 \begin_document
 \begin_header
@@ -551,11 +551,60 @@ SLAM Algorithms
 \end_layout
 
 \begin_layout Standard
+Simultaneous Localization and Mapping describes the process where a robot
+ which does not have a prior map of its surroundings through some sequential
+ controls and sensor measurements from its suroundings localizes itself
+ and simulataneously builds a navigational map of its surroundings.
+ There are several algorithms that can be used to solve SLAM based on computatio
+nal efficiency and the way the information is represented in the system.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:EKF-SLAM"
+
+\end_inset
+
 EKF-SLAM
 \end_layout
 
 \begin_layout Standard
+One of the earliest SLAM algorithm is based on the extended kalman filter
+ or EKF.
+ In this algorithm we use maximum likelihood data association and the robots
+ pose to sequentially solve real time SLAM.
+ Maps are feature based and hence it works well if the features are distinct.
+ It assumes the noise is gaussain.
+ It represents the robots position and uncertainity by the moments of a
+ gaussian i.e the mean and variance.
+ A more descriptive form of the algorithm is mentioned in [insert citation
+ here].
+ The process is divided into 2 phases, a prediction phase where the state
+ vector is updated based on control inputs along with additive gaussian
+ noise and a update stage where the state is updated based on landmark measureme
+nts with additive gaussian noise.
+ It scales quadratically with the number of landmarks present and hence
+ requires computational complexity.
+\end_layout
+
+\begin_layout Standard
 Particle Filter-SLAM
+\end_layout
+
+\begin_layout Standard
+This takes probabilistic approach to estimating location of the robot and
+ the landmarks as mentioned in [citation].
+ A particle refers to a possible hypothesis of the position of the robot
+ or landmark.
+ Initially particles that are uniformly distributed and hence the robot
+ assumes global uncertainitiy over the map.
+ As the robot moves around and measures sensor data the particles are resampled
+ based on the probability of it being the true position.
+ Particles that match sensor data are assigned higher probabilistic weights
+ and are therefore more likely to be re- sampled each iteration and hence
+ eventually these particles converge to the true position of the robot and
+ landmarks.
 \end_layout
 
 \begin_layout Standard
@@ -567,11 +616,56 @@ EIF-SLAM
 \end_layout
 
 \begin_layout Standard
+Information filters are based on the same underlying Gaussian belief principle
+ the same as the EKF but vary in the way the Gaussian beliefs are represented.
+ A descriptive information filter (IF) algorithm is mentioned in[citation].
+ In the information filter the Gaussians are in their conical parameterization
+ which comprises of an information matrix and information vector whereas
+ in the EKF the Gaussians are represented in the form of their moments,
+ mean and variance.
+ This leads to different update equations.
+ Hence what is computationally complex in one parameterization is easy to
+ solve in the other and vice versa.
+ A adavntage of using this is in multirobot SLAM where the infomation since
+ it is represented in its logarithmic form can be just directly added into
+ the information matrix.
+ A drawback of this method is that for higher dimensional problems it requires
+ the inversion of the information matrix and hence becomes computationally
+ inferior to the EKF.
+\end_layout
+
+\begin_layout Standard
 SEIF-SLAM
 \end_layout
 
 \begin_layout Standard
+It works on the same principle as that of the Information filter.
+ The IF stores the relationship between state variables as links in the
+ inforation matrix.
+ The SEIF eleiminates the weaker links that are below a certain threshold.
+ Therefore it maintains a sparse representation of the information matrix
+ making it more efficient and scalable as mentioned in [citation]
+\end_layout
+
+\begin_layout Standard
 Graph-SLAM
+\end_layout
+
+\begin_layout Standard
+Graph SLAM unlike the EKF solves the full SLAM problem.
+ It is similar to the information filter in the way it represents the Gaussian
+ in the form of its information filter and information matrix.
+ The key difference is in the sparseness maintained in the information matrix
+ due to linearizion in graph SLAM as mentioned in[citation].
+ This allows for the use of variable elimination algorithms and also maintain
+ higher dimensional maps which were not possible using EKF.
+ It represents the information in the form of a graph.
+ The nodes in the graph represent the robots path and the landmarks.
+ The edges between them represents the spatial constraints between them
+ also known as information constraints.
+ These constraints ae then linearized and are applied through standard inference
+ techniques to acquire the full posterior.
+ A manifold graph SLAM algorithm has been mentioned in [citation].
 \end_layout
 
 \begin_layout Standard
@@ -580,6 +674,33 @@ Grid-SLAM
 
 \begin_layout Standard
 Fast-SLAM
+\end_layout
+
+\begin_layout Standard
+EKF is mainly used when we have a non-linear dynamic system model which
+ has Gaussian noise.The quadratic com- plexity due to Gaussian approximations
+ of higher dimensions make the covariance matrix very large.
+ This eventually causes higher complexity and leads to the divergence of
+ the filter.
+ The single data association problem also adds to this complexity.
+ FastSLAM uses multiple hypothesis data association through particle filtering
+ to overcome this problem.
+ This allows it handle system models with non Gaussians noise as well.
+ This results in the computational complexity to grow logarithmi- cally
+ instead of quadratic growth.
+ FastSLAM utilizes the conditional Independence property of SLAM applications.
+ If the path of the robot is known the correlation between the landmarks
+ becomes zero.
+ Hence, in FastSLAM the robot path is initialized by using a particle filter.
+ Once the set of poses representing the path is obtained it estimates the
+ landmark positions using EKF over the entire robot path as mentioned in
+ [citation].
+ Thus, it maintains multiple data hypothesis overcoming the EKF problem.
+ As mentioned in [citation] the initial FAST SLAM algorithm FASTSLAM 1.0
+ suffered from sample inefficiency.
+ In order to overcome this the algorithm was tweaked to have a better target
+ distribution in FASTSLAM 2.0.
+ It was called the Rao- Blackwellized particle filter as mentioned in [citation]
 \end_layout
 
 \begin_layout Standard
@@ -889,7 +1010,11 @@ ng an entire application.
 \end_layout
 
 \begin_layout Standard
-As shown in figure we can see we added a comparably smaller amount of lines
+As 
+\end_layout
+
+\begin_layout Standard
+.3shown in figure we can see we added a comparably smaller amount of lines
  and did use a lot of the old code, pointing out the feature of re usability
  that can be used as most the individual applications of SLAM only vary
  in type of data and rate of data flow.
@@ -909,7 +1034,7 @@ status open
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
