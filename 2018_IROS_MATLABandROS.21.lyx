@@ -600,7 +600,7 @@ This takes probabilistic approach to estimating location of the robot and
  Initially particles that are uniformly distributed and hence the robot
  assumes global uncertainitiy over the map.
  As the robot moves around and measures sensor data the particles are resampled
- based on the probability of it being the true position.
+ based on the probability of it being the true position of the state variables.
  Particles that match sensor data are assigned higher probabilistic weights
  and are therefore more likely to be re- sampled each iteration and hence
  eventually these particles converge to the true position of the robot and
@@ -609,6 +609,15 @@ This takes probabilistic approach to estimating location of the robot and
 
 \begin_layout Standard
 UKF-SLAM (Unscented Kalman Filter)
+\end_layout
+
+\begin_layout Standard
+The Unscented Kalman Filter uses stocastic linearlization through the use
+ of weighted statistical regression for linearization instead of using taylor
+ series expansion as in the EKF.
+ This preserves the true mean and the true variance of the posterior distributio
+n since it captures the first 2 terms of the tailor expansion whereas the
+ EKF captures only the first order term as mentioned in[citation].
 \end_layout
 
 \begin_layout Standard
@@ -624,8 +633,8 @@ Information filters are based on the same underlying Gaussian belief principle
  in the EKF the Gaussians are represented in the form of their moments,
  mean and variance.
  This leads to different update equations.
- Hence what is computationally complex in one parameterization is easy to
- solve in the other and vice versa.
+ What is computationally complex in one parameterization is easy to solve
+ in the other and vice versa.
  A adavntage of using this is in multirobot SLAM where the infomation since
  it is represented in its logarithmic form can be just directly added into
  the information matrix.
@@ -641,8 +650,8 @@ SEIF-SLAM
 \begin_layout Standard
 It works on the same principle as that of the Information filter.
  The IF stores the relationship between state variables as links in the
- inforation matrix.
- The SEIF eleiminates the weaker links that are below a certain threshold.
+ information matrix.
+ The SEIF eliminates the weaker links that are below a certain threshold.
  Therefore it maintains a sparse representation of the information matrix
  making it more efficient and scalable as mentioned in [citation]
 \end_layout
@@ -700,7 +709,17 @@ EKF is mainly used when we have a non-linear dynamic system model which
  suffered from sample inefficiency.
  In order to overcome this the algorithm was tweaked to have a better target
  distribution in FASTSLAM 2.0.
- It was called the Rao- Blackwellized particle filter as mentioned in [citation]
+ It was called the Rao- Blackwellized particle filter as mentioned in [citation].
+\end_layout
+
+\begin_layout Standard
+Since there are several different ways of implementing these algorithms
+ and also since most researchers tune their frameworks to favor results
+ that they want to acheive there is no such unified framework where all
+ of this can be acheived that doesnt favor a particular researchers unique
+ library code execution models compatibility with specific sensor suites.
+ Hence the proposed system can serve as a single framework where these algorithm
+s can be tested in a consistent way.[Needs More Work]
 \end_layout
 
 \begin_layout Standard
